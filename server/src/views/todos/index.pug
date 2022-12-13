@@ -1,0 +1,22 @@
+extends ../layout.pug
+
+block append scripts
+  script(src='/js/todos/main.js')
+
+
+block content
+  div 
+    p TODOS Page
+    each todo, i in todos
+      div 
+        input(type="checkbox" id="#{i}" name="#{i}" checked=todo.completed)
+        label(for="#{i}")= todo.task
+
+    div.flex
+      input.input(type="text" placeholder="New Todo") 
+      button.btn.w-36 Add Todo
+
+    form.grid.gap-5(action='/logout' method='post' )
+      button.btn#logout(type="submit") LOGOUT
+
+block foot

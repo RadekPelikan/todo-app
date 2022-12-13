@@ -1,0 +1,15 @@
+extends layout.pug
+
+extends scripts
+  script(src='/js/main.js')
+
+block content
+  h1= title
+  each item, i in items
+    p.text-green-700 #{item.body}
+
+  +test()
+
+  pre= err
+
+block foot
